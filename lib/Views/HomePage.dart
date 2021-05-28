@@ -1,3 +1,4 @@
+import 'package:Travel_app/Views/SecondPage.dart';
 import 'package:flutter/material.dart';
 
 class CardData {
@@ -205,47 +206,53 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buildContainer(String text, String image) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 26, vertical: 6),
-      height: MediaQuery.of(context).size.height * 0.21,
-      decoration: BoxDecoration(
-          color: Color(0xff35BDD0).withOpacity(0.6),
-          borderRadius: BorderRadius.circular(28)),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  text,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
-                ),
-                Container(
-                  height: 20,
-                  width: 60,
-                  child: RaisedButton(
-                    color: Colors.white,
-                    onPressed: () {},
-                    child: Text(
-                      "Select",
-                      style:
-                          TextStyle(fontSize: 9, fontWeight: FontWeight.w600),
-                    ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7)),
+    return FlatButton(
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => SecondPage()));
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+        height: MediaQuery.of(context).size.height * 0.21,
+        decoration: BoxDecoration(
+            color: Color(0xff35BDD0).withOpacity(0.6),
+            borderRadius: BorderRadius.circular(28)),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                //crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    text,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
                   ),
-                ),
-              ],
+                  Container(
+                    height: 20,
+                    width: 60,
+                    child: RaisedButton(
+                      color: Colors.white,
+                      onPressed: () {},
+                      child: Text(
+                        "Select",
+                        style:
+                            TextStyle(fontSize: 9, fontWeight: FontWeight.w600),
+                      ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(7)),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Expanded(child: Image.asset(image))
-        ],
+            Expanded(child: Image.asset(image))
+          ],
+        ),
       ),
     );
   }
